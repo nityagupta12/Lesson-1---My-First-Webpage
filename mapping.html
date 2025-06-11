@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <p id="product_value"> </p>
+        <p id="product_value1"> </p>
+        <script>
+            var numbers = [28, 6, 19, 95];
+
+            function myFunction(num) {
+                return num * 10;
+            }
+            var newarray = numbers.map(myFunction);
+            document.getElementById("product_value").innerHTML = newarray;
+
+            var numbers1 = [28, 6, 19, 95];
+
+            function myFunction1(num1) {
+                return num1 * 6;
+            }
+            var newarray = numbers1.map(myFunction1);
+            document.getElementById("product_value1").innerHTML = newarray;
+        </script>
+
+
+
+
+
+    
+
+
+
+
+    </body>
+</html>
