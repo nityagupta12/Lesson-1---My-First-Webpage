@@ -5,7 +5,7 @@ body{
 #container{
     width: 1000px;
     height: 550px;
-    background-image: linear-gradient(purple, pink); 
+    background-image: linear-gradient(black, black); 
     margin: 20px auto;
 }
 #calculator{
