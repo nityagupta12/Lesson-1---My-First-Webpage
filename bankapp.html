@@ -1,0 +1,112 @@
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Expense Tracker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      padding: 2rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .expense-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="number"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4338ca;
+    }
+
+    .expense-list {
+      margin-top: 20px;
+    }
+
+    .expense-item {
+      background-color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 5px solid #4f46e5;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .total {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>💸 Expense Tracker</h1>
+
+  <div class="expense-form">
+    <input type="text" id="expense-name" placeholder="Expense name" />
+    <input type="number" id="expense-amount" placeholder="Amount (AED)" />
+    <button onclick="addExpense()">Add Expense</button>
+  </div>
+
+  <div class="expense-list" id="expense-list"></div>
+
+  <div class="total" id="total">Total: AED 0</div>
+
+  <script>
+    const expenseList = document.getElementById('expense-list');
+    const totalDisplay = document.getElementById('total');
+    let total = 0;
+
+    function addExpense() {
+      const name = document.getElementById('expense-name').value.trim();
+      const amount = parseFloat(document.getElementById('expense-amount').value);
+
+      if (!name || isNaN(amount) || amount <= 0) {
+        alert('Please enter a valid name and amount.');
+        return;
+      }
+
+      const item = document.createElement('div');
+      item.className = 'expense-item';
+      item.innerHTML = `<span>${name}</span><span>AED ${amount.toFixed(2)}</span>`;
+      expenseList.appendChild(item);
+
+      total += amount;
+      totalDisplay.textContent = `Total: AED ${total.toFixed(2)}`;
+
+      // Clear inputs
+      document.getElementById('expense-name').value = '';
+      document.getElementById('expense-amount').value = '';
+    }
+  </script>
+</body>
+</html>
