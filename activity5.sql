@@ -1,0 +1,32 @@
+-- Create the PRODUCTS table if it does not exist
+CREATE TABLE IF NOT EXISTS PRODUCTSS (
+PRODUCT_ID TEXT,
+PRODUCT_NAME TEXT,
+SUPPLIER_ID TEXT,
+CATEGORY_ID TEXT,
+UNIT TEXT,
+PRICE REAL 
+);
+
+-- Insert sample data into the PRODUCTS table
+INSERT INTO PRODUCTSS (PRODUCT_ID, PRODUCT_NAME, SUPPLIER_ID, CATEGORY_ID, UNIT, PRICE) VALUES
+('1','PANADOL','658473','643872','5 ML * 3X', 62),
+('2','IBUPROFEN','627891','564287', '3 ML * 2X', 65),
+('3','ASPIRIN', '691371','278901', '1 TBLT', 34),
+('4', 'ADVIL', '820380','821092',' TBLT AFTER EVERY MEAL', 78),
+('5', 'TYLENOL','328909','718932',' 1 TBLT DURING THE DAY', 76);
+
+SELECT * FROM PRODUCTSS;
+
+-- Query to find the count of the number of products
+SELECT COUNT(PRODUCT_ID) AS Product_Count
+FROM PRODUCTSS;
+
+-- Query to find the average price of products
+SELECT AVG(PRICE) AS Average_Price
+FROM PRODUCTSS;
+
+-- Query to find the total price of products
+SELECT SUM(PRICE) AS Total_Price
+FROM PRODUCTSS;
+
